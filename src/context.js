@@ -36,9 +36,15 @@ class RoomsProvider extends Component {
         return tempRooms;
     }
 
+    getRoom = slug => {
+        let tempRooms = [...this.state.rooms];
+        const room = tempRooms.find(room => room.slug === slug);
+        return room;
+    };
+
     render() {
         return (
-            <RoomsContext.Provider value={{ ...this.state }} >
+            <RoomsContext.Provider value={{ ...this.state, getRoom: this.getRoom }} >
                 {this.props.children}
             </RoomsContext.Provider>
         )
