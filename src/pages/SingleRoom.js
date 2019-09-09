@@ -17,7 +17,6 @@ export default class SingleRoom extends Component {
     render() {
         const { getRoom } = this.context;
         const room = getRoom(this.state.slug);
-        console.log(room)
         if (!room) {
             return <div className="error">
                 <h3>No such room could be found...</h3>
